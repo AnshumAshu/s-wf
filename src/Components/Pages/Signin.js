@@ -58,7 +58,7 @@ const SignUp = () => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
       }
 
-      navigate("/dashboard"); // Redirect to dashboard after login/signup
+      navigate("/home"); // Redirect to dashboard after login/signup
     } catch (err) {
       console.error(err);
       setError(err.response?.data?.message || "Something went wrong");

@@ -7,6 +7,12 @@ import DefaultAvatar from "../avatar.png"; // default avatar image
 // Dropdown component for logged-in user
 const UserDropdown = ({ user, onLogout }) => {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+
+  const handleNav = (path) => {
+    setOpen(false);
+    navigate(path);
+  };
 
   return (
     <div className="relative">
@@ -19,12 +25,42 @@ const UserDropdown = ({ user, onLogout }) => {
       {open && (
         <div className="absolute right-0 mt-12 w-48 bg-white shadow-lg rounded border border-gray-200 z-50">
           <ul className="flex flex-col">
-			<li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Hello Name</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Wallet</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Credits</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Vouchers</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Schedule Pickup</li>
-            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">Check pickups</li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/profile")}
+            >
+              Hello {user.name || "User"}
+            </li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/wallet")}
+            >
+              Wallet
+            </li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/credits")}
+            >
+              Credits
+            </li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/vouchers")}
+            >
+              Vouchers
+            </li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/schedule-pickup")}
+            >
+              Schedule Pickup
+            </li>
+            <li
+              className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              onClick={() => handleNav("/check-pickups")}
+            >
+              Check Pickups
+            </li>
             <li
               className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500"
               onClick={onLogout}
@@ -41,7 +77,6 @@ const UserDropdown = ({ user, onLogout }) => {
 const Header = () => {
   const navigate = useNavigate();
 
-  // Check if user is logged in
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
@@ -77,7 +112,6 @@ const Header = () => {
           </Link>
         </nav>
 
-        {/* Avatar or Sell Scrap button */}
         <div className="flex items-center gap-3">
           {user ? (
             <UserDropdown user={user} onLogout={handleLogout} />
