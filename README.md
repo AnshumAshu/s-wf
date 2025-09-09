@@ -45,7 +45,7 @@ The platform is built with **React.js, Tailwind CSS, Node.js, Express.js, and Mo
 
 ## 🎨 UI/UX Design
 You can explore the **full design** and concept on Canva:  
-🔗 [View Design on Canva](YOUR_CANVA_FILE_LINK_HERE)
+🔗 [View Design on Canva](https://www.canva.com/design/DAGNRVaJCZQ/_wr_H-HjoVTvv5kupqGmFw/edit?utm_content=DAGNRVaJCZQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 ---
 
@@ -53,5 +53,5 @@ You can explore the **full design** and concept on Canva:
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/YourUsername/sell-well.git
+git clone https://github.com/AnshumAshu/sell-well.git
 cd sell-well
